@@ -39,6 +39,7 @@
   &:nth-child(even) {
     .slider__item-text {
       align-self: flex-end;
+      transition-delay: 1.2s;
 
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
@@ -96,6 +97,10 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+
+  transform: translateX(2rem);
+  opacity: 0;
+  transition: transform 0.4s ease-out 0.8s, opacity 0.4s ease-in 0.8s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -273,6 +278,38 @@
       width: 0.4rem;
       height: 0.4rem;
       background-color: $c-light;
+    }
+  }
+}
+@media (min-width: $tablet) {
+  .swiper-slide-active,
+  .swiper-slide-next {
+    & .slider__item-text {
+      transform: translateX(0rem);
+      opacity: 1;
+    }
+  }
+  .swiper-slide-prev {
+    & .slider__item-text {
+      transform: translateX(-2rem);
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .swiper-slide-active {
+    & .slider__item-text {
+      transform: translateX(0rem);
+      transition-delay: 0.2ms;
+      opacity: 1;
+    }
+  }
+  .swiper-slide-prev {
+    & .slider__item-text {
+      transform: translateX(-2rem);
+      opacity: 0;
+      transition-delay: 0ms;
     }
   }
 }
