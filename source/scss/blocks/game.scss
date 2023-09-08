@@ -121,3 +121,46 @@
   margin: 0 30px 30px;
   display: block;
 }
+.screen--game #message-form {
+  justify-content: flex-end;
+}
+
+.screen--game.active {
+  @keyframes stopFlex {
+    0% {
+      flex-grow: 0;
+    }
+    99% {
+      flex-grow: 0;
+    }
+    100% {
+      flex-grow: 1;
+    }
+  }
+
+  & .form__button {
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  & #message-field {
+    transition: width 1s;
+    width: calc(100% - 21rem);
+
+    @media (min-width: $stop-scaling) {
+      width: calc(100% - 210px);
+    }
+
+    @media (orientation: portrait) {
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: calc(100% - 5rem);
+    }
+  }
+}
