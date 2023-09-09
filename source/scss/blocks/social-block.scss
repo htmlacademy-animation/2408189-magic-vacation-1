@@ -55,7 +55,8 @@
   }
 
   &:focus {
-    color: $c-purple;
+    background-color: $c-purple;
+    color: $c-light;
     outline: none;
 
     &::before {
@@ -65,6 +66,9 @@
     & + .social-block__list {
       opacity: 1;
       pointer-events: auto;
+      li {
+        margin-top: 0.5rem;
+      }
     }
   }
 
@@ -135,16 +139,25 @@
   &:focus-within {
     opacity: 1;
     pointer-events: auto;
+    li {
+      margin-top: 0.5rem;
+    }
   }
 
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+    transition: opacity 1.38s;
+
+    & > li {
+      margin-top: 0.5rem;
+      transition: margin-top 0.8s;
+    }
   }
 
   li {
     flex: none;
-    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -186,6 +199,7 @@
 
   &:hover {
     color: $c-purple;
+    transition: color 0.3s;
   }
 
   &:focus {
@@ -219,6 +233,7 @@
   }
 
   &--insta {
+    transition-delay: 0.5s;
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -231,6 +246,7 @@
   }
 
   &--vk {
+    transition-delay: 0.99s;
     svg {
       width: 1.7rem;
       height: 1rem;
