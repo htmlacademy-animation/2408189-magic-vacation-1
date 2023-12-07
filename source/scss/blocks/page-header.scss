@@ -17,6 +17,8 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 0.9rem 0;
   }
+
+  transition: opacity 0.6s linear 0.8s;
 }
 
 .page-header__wrapper {
@@ -69,6 +71,8 @@
     width: 100%;
     height: auto;
   }
+
+  transition: transform 0.6s linear 0.6s;
 }
 
 .page-header__toggler {
@@ -304,5 +308,12 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+.hidden_page-header {
+  opacity: 0;
+  & .page-header__logo {
+    transform: translateX(-50%);
   }
 }

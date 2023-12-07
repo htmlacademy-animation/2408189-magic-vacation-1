@@ -23,4 +23,10 @@ export default () => {
       }
     });
   }
+
+  const showHeaderAction = () => {
+    const headerElement = document.getElementsByClassName("page-header")[0];
+    headerElement && headerElement.classList.remove("hidden_page-header");
+  };
+  window.addEventListener("load", showHeaderAction, { once: true });
 };
