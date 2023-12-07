@@ -38,6 +38,10 @@
   z-index: 1;
 }
 
+.hidden_footer {
+  transform: translateY(100%);
+}
+
 .screen__footer {
   position: absolute;
   bottom: 0;
@@ -46,6 +50,7 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transition: transform 0.6s ease-in-out 0.6s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -290,7 +295,8 @@
 
 .screen--story {
   background-color: $c-dark;
-  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
+  background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
+    url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
