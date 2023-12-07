@@ -271,13 +271,6 @@
       }
     }
 
-    &.active {
-      &::after {
-        width: 100%;
-        background-color: $c-light;
-      }
-    }
-
     &:hover,
     &:focus {
       color: $c-purple;
@@ -292,6 +285,15 @@
       }
     }
   }
+}
+
+.loaded .page-header__menu a.active::after {
+  left: 0;
+  width: 100%;
+  background-color: $c-light;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-delay: 1.2s;
 }
 
 .page-header__social {
