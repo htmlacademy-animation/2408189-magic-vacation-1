@@ -50,7 +50,7 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
-  transition: transform 0.6s ease-in-out 0.6s;
+  transition: transform 0.6s cubic-bezier(0.62, 0.7, 0.19, 0.96) 0.6s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
