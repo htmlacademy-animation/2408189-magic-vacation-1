@@ -1,4 +1,9 @@
 export default () => {
+  const showFooterAction = () => {
+    const footerElement = document.getElementsByClassName("hidden_footer")[0];
+    footerElement && footerElement.classList.remove("hidden_footer");
+  };
+
   let footerTogglers = document.querySelectorAll(`.js-footer-toggler`);
 
   if (footerTogglers.length) {
@@ -13,4 +18,5 @@ export default () => {
       });
     }
   }
+  window.addEventListener("load", showFooterAction, { once: true });
 };

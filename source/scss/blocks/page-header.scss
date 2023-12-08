@@ -17,6 +17,8 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 0.9rem 0;
   }
+
+  transition: opacity 0.6s cubic-bezier(0.62, 0.7, 0.19, 0.96) 0.8s;
 }
 
 .page-header__wrapper {
@@ -69,6 +71,8 @@
     width: 100%;
     height: auto;
   }
+
+  transition: all 0.6s cubic-bezier(0.62, 0.7, 0.19, 0.96) 0.6s;
 }
 
 .page-header__toggler {
@@ -130,6 +134,7 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  transition: opacity 0.6s cubic-bezier(0.62, 0.7, 0.19, 0.96) 1s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -266,13 +271,6 @@
       }
     }
 
-    &.active {
-      &::after {
-        width: 100%;
-        background-color: $c-light;
-      }
-    }
-
     &:hover,
     &:focus {
       color: $c-purple;
@@ -287,6 +285,15 @@
       }
     }
   }
+}
+
+.loaded .page-header__menu a.active::after {
+  left: 0;
+  width: 100%;
+  background-color: $c-light;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-delay: 1.2s;
 }
 
 .page-header__social {
@@ -304,5 +311,15 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+.hidden_page-header {
+  & .page-header__logo {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  & .page-header__nav {
+    opacity: 0;
   }
 }
