@@ -309,6 +309,14 @@
 
 .screen--prizes {
   background-color: $c-dark;
+  position: relative;
+  & > div.screen__footer {
+    transform: translateY(100%);
+  }
+}
+.screen--prizes.active > div.screen__footer {
+  transform: translateY(10%);
+  transition: transform 0.6s cubic-bezier(0.62, 0.7, 0.19, 0.96);
 }
 
 .screen--game {
@@ -359,4 +367,19 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+.block__background-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0vh;
+  z-index: 1;
+  background-color: $c-dark;
+}
+
+.block__background-fill.active {
+  height: 100vh;
+  transition: height 0.4s cubic-bezier(0.62, 0.7, 0.19, 0.96);
 }
