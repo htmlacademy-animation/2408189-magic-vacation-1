@@ -144,6 +144,12 @@
     font-size: 1.2rem;
   }
 
+  @keyframes animateScaling {
+    to {
+      transform: scale(1);
+    }
+  }
+
   &::before {
     content: counter(li);
     counter-increment: li;
@@ -159,6 +165,11 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    transform: scale(0);
+    animation-name: animateScaling;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.32, 1.11, 0.63, 1.4);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -177,12 +188,66 @@
     }
   }
 
+  @keyframes showFromRight {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   p {
     margin: 0;
+    transform: translateX(15%);
+    opacity: 0;
+    animation-name: showFromRight;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.58, 0.41, 0.16, 0.67);
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
     }
+  }
+}
+
+.rules__item:nth-child(2)::before,
+.rules__item:nth-child(2) p {
+  animation-delay: 150ms;
+}
+.rules__item:nth-child(3)::before,
+.rules__item:nth-child(3) p {
+  animation-delay: 300ms;
+}
+.rules__item:nth-child(4)::before,
+.rules__item:nth-child(4) p {
+  animation-delay: 450ms;
+}
+
+@keyframes showText {
+  to {
+    color: $c-dark;
+  }
+}
+
+@keyframes growWidth {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    width: 17rem;
+    opacity: 1;
+  }
+}
+
+@keyframes growWidthTablet {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    width: 100%;
+    opacity: 1;
   }
 }
 
@@ -191,15 +256,21 @@
   bottom: 6rem;
   right: 5.6rem;
 
+  width: 6rem;
+  color: transparent;
+  opacity: 0;
+  animation: growWidth 0.4s forwards, showText 0.2s forwards;
+  animation-delay: 0.6s, 0.8s;
+
   @media (min-width: $stop-scaling) {
     bottom: 60px;
     right: 56px;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    left: 0;
     right: 0;
     bottom: 4rem;
+    animation-name: growWidthTablet, showText;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
